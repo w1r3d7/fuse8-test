@@ -1,3 +1,3 @@
-import HouseList from './house-list';
+import HouseList from "./house-list";
 
 export default HouseList;

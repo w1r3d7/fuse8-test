@@ -1,3 +1,3 @@
-import House from './house';
+import House from "./house";
 
 export default House;

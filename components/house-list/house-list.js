@@ -1,16 +1,13 @@
-import House from '../house';
+import House from "../house";
 
-const HouseList = ({houses}) => {
+const HouseList = ({ houses }) => {
   return (
     <div className="house-list">
-      {
-        houses.map((house) => {
-          return <House key={house.id} house={house} />
-        })
-      }
+      {houses.map((house) => {
+        return <House key={house.id} house={house} />;
+      })}
     </div>
-
-  )
-}
+  );
+};
 
 export default HouseList;

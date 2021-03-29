@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import {IMAGE_PLACEHOLDER_URL} from '../../constants';
-import {formatterGBP} from '../../utils';
+import Link from "next/link";
+import { IMAGE_PLACEHOLDER_URL } from "../../constants";
+import { formatterGBP } from "../../utils";
 
 const House = ({ house }) => {
   const { title, address, type, price, id } = house;
@@ -12,17 +12,20 @@ const House = ({ house }) => {
           <img
             className="house__image"
             src={IMAGE_PLACEHOLDER_URL}
-            alt={`${title} - ${address}`} />
+            alt={`${title} - ${address}`}
+          />
         </div>
         <div className="house__info">
-          <h3 className="house__title">{title}</h3>
+          <h2 className="house__title">{title}</h2>
           <p className="house__address">{address}</p>
-          <p className="house__offer">New Properties for Sale from <b>{ formatterGBP.format(price) }</b></p>
+          <p className="house__offer">
+            New Properties for Sale from <b>{formatterGBP.format(price)}</b>
+          </p>
           <p className="house__description">Shared Ownership Available</p>
         </div>
       </a>
     </Link>
-  )
-}
+  );
+};
 
 export default House;
