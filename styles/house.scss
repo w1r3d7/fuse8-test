@@ -1,8 +1,43 @@
 .house {
   display: block;
-  max-width: 379px;
   box-sizing: border-box;
   background: #F8F8F8;
-  border: 1px solid #D8D8D8;
+  border: 1px solid $border-color;
   color: $text-color;
+}
+
+.house__image-wrapper {
+
+}
+
+.house__image {
+  width: 100%;
+  object-fit: cover;
+  max-height: 227px;
+}
+
+.house__info {
+  padding: 16px 20px 18px 20px;
+}
+
+.house__title {
+  margin: 0 0 3px;
+  font-size: 20px;
+  line-height: 27px;
+}
+
+.house__address {
+  margin: 0 0 14px;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.house__offer {
+  margin: 0 0 8px;
+}
+
+.house__description {
+  margin: 0;
+  font-size: 14px;
+  line-height: 19px;
 }

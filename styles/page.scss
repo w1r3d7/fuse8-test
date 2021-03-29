@@ -1,16 +1,22 @@
 .page {
-  max-width: 1280px;
-  padding: 16px 10px 0 10px;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 16px 10px 10px 10px;
 
   @media (min-width: $layout-breakpoint-small) {
-    padding: 36px 50px 0 50px;
+    padding: 36px 50px 10px 50px;
   }
 }
 
 .page__title {
   margin: 0;
+  margin-bottom: 43px;
   font-size: 36px;
   line-height: 49px;
   color: $title-color;
   text-align: center;
+}
+
+.page__filter {
+  margin-bottom: 45px;
 }

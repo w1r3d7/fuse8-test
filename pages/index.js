@@ -1,9 +1,10 @@
 import Head from 'next/head'
-import House from '../components/house';
+import HouseList from '../components/house-list';
 import Filter from '../components/filter';
 import Loader from '../components/loader';
 
-export default function Home({homes}) {
+export default function Home({ homes, error }) {
+
   return (
     <>
       <Head>
@@ -14,9 +15,14 @@ export default function Home({homes}) {
       </Head>
       <main className="page">
         <h1 className="page__title">Our Latest Developments</h1>
-        <Filter />
-        {homes ?
-          <House house={homes[0]} />
+        <div className="page__filter">
+          <Filter />
+        </div>
+        {
+          error && <h2>Error</h2>
+        }
+        {homes && !error ?
+          <HouseList houses={homes} />
           :
           <Loader />
         }
