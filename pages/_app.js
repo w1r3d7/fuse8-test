@@ -4,7 +4,7 @@ import {useEffect, useState} from 'react';
 import {API_URL} from '../constants';
 
 function MyApp({ Component, pageProps }) {
-  const [homes, setHomes] = useState([]);
+  const [homes, setHomes] = useState();
 
   useEffect(() => {
     fetch(API_URL)

@@ -1,10 +1,11 @@
 import Head from 'next/head'
 import House from '../components/house';
 import Filter from '../components/filter';
+import Loader from '../components/loader';
 
-export default function Home() {
+export default function Home({homes}) {
   return (
-    <div>
+    <>
       <Head>
         <title>Our Latest Developments</title>
         <link rel="icon" href="/favicon.ico" />
@@ -14,8 +15,12 @@ export default function Home() {
       <main className="page">
         <h1 className="page__title">Our Latest Developments</h1>
         <Filter />
-        <House />
+        {homes ?
+          <House house={homes[0]} />
+          :
+          <Loader />
+        }
       </main>
-    </div>
+    </>
   )
 }
