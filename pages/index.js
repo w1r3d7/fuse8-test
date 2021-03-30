@@ -1,18 +1,20 @@
 import Head from "next/head";
 import HouseList from "../components/house-list";
 import Filter from "../components/filter";
-import Loader from "../components/loader";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { API_URL } from "../constants";
+import Error from "next/error";
 
-export default function Home({ homes, error }) {
-  const [filtered, setFiltered] = useState();
+export default function Home({ houses }) {
+  console.log(houses);
+  if (houses === "Not found") {
+    return <Error statusCode="Error" />;
+  }
 
-  useEffect(() => {
-    setFiltered(homes);
-  }, [homes]);
+  const [filtered, setFiltered] = useState(houses);
 
   const handleFilterType = (value) => {
-    const filteredHomes = homes?.filter(({ title }) => {
+    const filteredHomes = houses?.filter(({ title }) => {
       return title.toLowerCase().includes(value.toLowerCase());
     });
 
@@ -34,9 +36,20 @@ export default function Home({ homes, error }) {
         <div className="page__filter">
           <Filter onFilterInput={handleFilterType} />
         </div>
-        {error && <ErrorMessage />}
-        {filtered && !error ? <HouseList houses={filtered} /> : <Loader />}
+        <HouseList houses={filtered} />
       </main>
     </>
   );
+}
+
+export async function getServerSideProps() {
+  const data = await fetch(API_URL);
+
+  const houses = await data.json();
+
+  return {
+    props: {
+      houses,
+    },
+  };
 }
