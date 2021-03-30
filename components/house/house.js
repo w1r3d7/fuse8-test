@@ -1,12 +1,31 @@
 import Link from "next/link";
-import { IMAGE_PLACEHOLDER_URL } from "../../constants";
+import { BadgeTitle, IMAGE_PLACEHOLDER_URL } from "../../constants";
 import { formatterGBP } from "../../utils";
 
 const House = ({ house }) => {
   const { title, address, type, price, id } = house;
 
+  let badge = null;
+
+  switch (type) {
+    case BadgeTitle.INDEPENDENT_LIVING:
+      badge = (
+        <div className="house__badge house__badge--teal">
+          <span>Independent living</span>
+        </div>
+      );
+      break;
+    case BadgeTitle.SUPPORT_AVAILABLE:
+      badge = (
+        <div className="house__badge house__badge--orange">
+          <span>Restaurant & Support available</span>
+        </div>
+      );
+      break;
+  }
+
   return (
-    <Link href={`details/${id}`}>
+    <Link href={`/details/[id]`} as={`/details/${id}`}>
       <a className="house">
         <div className="house__image-wrapper">
           <img
@@ -14,6 +33,7 @@ const House = ({ house }) => {
             src={IMAGE_PLACEHOLDER_URL}
             alt={`${title} - ${address}`}
           />
+          {badge}
         </div>
         <div className="house__info">
           <h2 className="house__title">{title}</h2>

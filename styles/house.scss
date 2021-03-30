@@ -4,11 +4,34 @@
   background: #F8F8F8;
   border: 1px solid $border-color;
   color: $text-color;
+
+  &:hover,
+  &:focus {
+    box-shadow: $shadow;
+  }
 }
 
 .house__image-wrapper {
-
+  position: relative;
 }
+
+.house__badge {
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+  padding: 8px 10px 5px 10px;
+  color: #ffffff;
+}
+
+.house__badge--teal {
+  background-color: $badge-teal;
+}
+
+.house__badge--orange {
+  background-color: $badge-orange;
+}
+
+
 
 .house__image {
   width: 100%;

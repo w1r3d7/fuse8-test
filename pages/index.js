@@ -6,7 +6,6 @@ import { API_URL } from "../constants";
 import Error from "next/error";
 
 export default function Home({ houses }) {
-  console.log(houses);
   if (houses === "Not found") {
     return <Error statusCode="Error" />;
   }
@@ -20,8 +19,6 @@ export default function Home({ houses }) {
 
     setFiltered(filteredHomes);
   };
-
-  const ErrorMessage = <h2>Sorry, please try later!</h2>;
 
   return (
     <>
@@ -44,7 +41,6 @@ export default function Home({ houses }) {
 
 export async function getServerSideProps() {
   const data = await fetch(API_URL);
-
   const houses = await data.json();
 
   return {
