@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const Filter = ({ onFilterInput }) => {
+const Filter = ({ onFilterInput, parentClass = "" }) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleFormSubmit = (evt) => {
@@ -25,7 +25,7 @@ const Filter = ({ onFilterInput }) => {
   };
 
   return (
-    <form className="filter" onSubmit={handleFormSubmit}>
+    <form className={`filter ${parentClass}`} onSubmit={handleFormSubmit}>
       <label htmlFor="filter" className="filter__label">
         Filter
       </label>

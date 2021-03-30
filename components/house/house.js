@@ -2,7 +2,7 @@ import Link from "next/link";
 import { BadgeTitle, IMAGE_PLACEHOLDER_URL } from "../../constants";
 import { formatterGBP } from "../../utils";
 
-const House = ({ house }) => {
+const House = ({ house, parentClass = "" }) => {
   const { title, address, type, price, id } = house;
 
   let badge = null;
@@ -26,7 +26,7 @@ const House = ({ house }) => {
 
   return (
     <Link href={`/details/[id]`} as={`/details/${id}`}>
-      <a className="house">
+      <a className={`house ${parentClass}`}>
         <div className="house__image-wrapper">
           <img
             className="house__image"

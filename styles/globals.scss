@@ -1,12 +1,13 @@
 @import "fonts";
 @import "variables";
-@import "page";
 @import "house";
 @import "loader";
 @import "house-list";
 @import "not-found";
 @import "filter";
 @import "house-page";
+@import "search-more-button";
+@import "page";
 
 body {
   min-width: 320px;

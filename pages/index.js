@@ -4,6 +4,7 @@ import Filter from "../components/filter";
 import { useState } from "react";
 import { API_URL } from "../constants";
 import Error from "next/error";
+import SearchMoreButton from "../components/search-more-button";
 
 export default function Home({ houses }) {
   if (houses === "Not found") {
@@ -24,16 +25,18 @@ export default function Home({ houses }) {
     <>
       <Head>
         <title>Our Latest Developments</title>
-        <link rel="icon" href="/favicon.ico" />
         <meta name="keywords" content="Developments, houses" />
         <meta name="description" content="Our Latest Developments" />
       </Head>
       <main className="page">
         <h1 className="page__title">Our Latest Developments</h1>
-        <div className="page__filter">
-          <Filter onFilterInput={handleFilterType} />
-        </div>
-        <HouseList houses={filtered} />
+        <Filter onFilterInput={handleFilterType} parentClass="page__filter" />
+        <HouseList houses={filtered} parentClass="page__house-list" />
+        {filtered.length === 0 ? (
+          ""
+        ) : (
+          <SearchMoreButton parentClass="page__search-more-button" />
+        )}
       </main>
     </>
   );
